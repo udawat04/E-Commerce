@@ -1,49 +1,57 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const app = express();
-const { APP_PORT, DB_URL } = require("./config");
 const bodyParser = require("body-parser");
+const { APP_PORT, DB_URL } = require("./config");
 const routes = require("./routes");
 
-// cors use
+const app = express();
+
+/* ======================
+   CORS CONFIG (FIXED)
+====================== */
 const corsOptions = {
   origin: [
-    "http://localhost:3000", // React local
-    "http://localhost:5173", // Vite
-    "https://artisan-frontend-chi.vercel.app/",
-    "https://admin-artisan.vercel.app/", // Production frontend
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://artisan-frontend-chi.vercel.app",
+    "https://admin-artisan.vercel.app",
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // 🔥 REQUIRED FOR VERCEL
 
-// listen on Port
-app.listen(APP_PORT, () => {
-  console.log(`app is conected on ${APP_PORT} port`);
-});
-
-
-
-// body parser use
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-);
+/* ======================
+   BODY PARSER
+====================== */
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+/* ======================
+   STATIC FILES
+====================== */
 app.use(express.static(__dirname + "/public"));
 app.use("/upload", express.static("upload"));
 
-
-// routes folder use here
+/* ======================
+   ROUTES
+====================== */
 app.use(routes);
 
+/* ======================
+   DATABASE
+====================== */
+mongoose
+  .connect(DB_URL)
+  .then(() => console.log("Database Connected!"))
+  .catch((err) => console.error(err));
 
-// mongoose connection establish
-
-mongoose.connect(DB_URL).then(() => console.log("Database Connected!"));
+/* ======================
+   SERVER
+====================== */
+app.listen(APP_PORT, () => {
+  console.log(`App is connected on ${APP_PORT} port`);
+});
