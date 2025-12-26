@@ -1,7 +1,6 @@
-const bcrypt = require("bcrypt");
-const  Register  = require("../../models/registerModel");
+const bcrypt = require("bcryptjs");
+const Register = require("../../models/registerModel");
 const { JwtServices } = require("../../../services");
-
 
 const loginController = {
   async login(req, res) {
@@ -9,7 +8,7 @@ const loginController = {
     try {
       const { email, password } = req.body;
       user = await Register.findOne({ email });
-      console.log(user)
+      console.log(user);
 
       if (!user) {
         console.log("Invalid email");
@@ -23,25 +22,28 @@ const loginController = {
       }
       console.log(passwordValidate);
 
-      const accessToken =JwtServices.sign(
+      const accessToken = JwtServices.sign(
         {
-          _id:user._id
+          _id: user._id,
         },
         "30m"
       );
       console.log(accessToken);
 
-      const refreshToken =JwtServices.sign(
+      const refreshToken = JwtServices.sign(
         {
-          _id:user._id
+          _id: user._id,
         },
         "1y",
         REFRESH_SECRET
       );
-      return res.json({status:200,accessToken,refreshToken,user})
-
+      return res.json({ status: 200, accessToken, refreshToken, user });
     } catch (error) {
-      return res.json({ status: 500, error: "server error from login", serverError: error });
+      return res.json({
+        status: 500,
+        error: "server error from login",
+        serverError: error,
+      });
     }
     // console.log("this person is loged in", userLog);
     // res.json({ status: 200, user: userLog });
