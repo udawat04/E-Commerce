@@ -19,7 +19,7 @@ const Orders = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/category", {
+    fetch("https://artisan-backend-beta.vercel.app/category", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -36,7 +36,7 @@ const Orders = () => {
 
   const deleteOrder = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/category/${id}`, {
+      const response = await fetch(`https://artisan-backend-beta.vercel.app/category/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {

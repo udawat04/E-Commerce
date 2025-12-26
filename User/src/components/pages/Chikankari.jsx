@@ -13,7 +13,7 @@ const Chikankari = ({ handleAddToWishlist }) => {
    console.log(id);
    useEffect(() => {
      debugger;
-     fetch(`http://localhost:4000/sub/${id}`, {
+     fetch(`https://artisan-backend-beta.vercel.app/sub/${id}`, {
        method: "GET",
      })
        .then((res) => res.json())

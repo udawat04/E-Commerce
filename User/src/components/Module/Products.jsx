@@ -12,7 +12,7 @@ const Products = () => {
 
   useEffect(() => {
     console.log(user, 'user');
-     fetch("http://localhost:4000/products", {
+     fetch("https://artisan-backend-beta.vercel.app/products", {
        method: "GET",
      })
        .then((res) => res.json())
@@ -21,14 +21,14 @@ const Products = () => {
     if (user && user?._id) {
      
 
-      fetch(`http://localhost:4000/getCartItems/${user._id}`, {
+      fetch(`https://artisan-backend-beta.vercel.app/getCartItems/${user._id}`, {
         method: "GET",
       })
         .then((res) => res.json())
         .then((data) => setCart(data))
         .catch((error) => console.log(error));
 
-      fetch(`http://localhost:4000/getWishlist/${user._id}`, {
+      fetch(`https://artisan-backend-beta.vercel.app/getWishlist/${user._id}`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -39,7 +39,7 @@ const Products = () => {
 
    const handleAddToCart = (productId) => {
      if (user && user._id) {
-       fetch("http://localhost:4000/addToCart", {
+       fetch("https://artisan-backend-beta.vercel.app/addToCart", {
          method: "POST",
          headers: {
            "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Products = () => {
 
   const handleAddToWishlist = (productId) => {
     if (user && user._id) {
-      fetch("http://localhost:4000/addToWishlist", {
+      fetch("https://artisan-backend-beta.vercel.app/addToWishlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const Products = () => {
 
     const handleRemoveFromWishlist = (productId) => {
       if (user && user._id) {
-        fetch("http://localhost:4000/removeFromWishlist", {
+        fetch("https://artisan-backend-beta.vercel.app/removeFromWishlist", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

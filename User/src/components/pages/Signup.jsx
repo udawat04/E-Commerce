@@ -27,7 +27,7 @@ const Signup = () => {
 
     console.log(form);
     if (form.fullname && form.email && form.mobile && form.password) {
-      fetch("http://localhost:4000/register", {
+      fetch("https://artisan-backend-beta.vercel.app/register", {
         method: "POST",
         body: JSON.stringify(form),
         headers: {

@@ -16,7 +16,7 @@ const AddProduct = () => {
 
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/category", {
+    fetch("https://artisan-backend-beta.vercel.app/category", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const AddProduct = () => {
   const [subcategory, setSubCategory] = useState([]);
 
   const fetchSubcategories = (id) => {
-    fetch(`http://localhost:4000/sub/${id}`, {
+    fetch(`https://artisan-backend-beta.vercel.app/sub/${id}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -93,7 +93,7 @@ const AddProduct = () => {
         form.append(`slider`, image); 
       });
 
-      fetch("http://localhost:4000/product", {
+      fetch("https://artisan-backend-beta.vercel.app/product", {
         method: "POST",
         body: form,
       })

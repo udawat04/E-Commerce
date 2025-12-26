@@ -26,7 +26,7 @@ const Login = () => {
     ev.preventDefault();
     console.log(formData);
     if (formData.email && formData.password) {
-      fetch("http://localhost:4000/login", {
+      fetch("https://artisan-backend-beta.vercel.app/login", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

@@ -10,7 +10,7 @@ const Navebar = () => {
 
    
   useEffect(() => {
-    fetch("http://localhost:4000/category/sub", {
+    fetch("https://artisan-backend-beta.vercel.app/category/sub", {
       method: "GET",
     })
       .then((res) => res.json())

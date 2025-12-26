@@ -29,7 +29,7 @@ export default function Wishlist() {
   useEffect(() => {
     if (currentUser && currentUser?._id) {
       // Fetch wishlist items from the backend
-      fetch(`http://localhost:4000/getWishlist/${currentUser?._id}`, {
+      fetch(`https://artisan-backend-beta.vercel.app/getWishlist/${currentUser?._id}`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -40,7 +40,7 @@ export default function Wishlist() {
 
   const handleRemoveFromWishlist = (productId) => {
     debugger;
-    fetch("http://localhost:4000/removeFromWishlist", {
+    fetch("https://artisan-backend-beta.vercel.app/removeFromWishlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

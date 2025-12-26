@@ -13,7 +13,7 @@ const AddSubcategory = () => {
 
   const [category, setCategory] = useState([]);
    useEffect(() => {
-     fetch("http://localhost:4000/category", {
+     fetch("https://artisan-backend-beta.vercel.app/category", {
        method: "GET",
      })
        .then((res) => res.json())
@@ -57,7 +57,7 @@ const AddSubcategory = () => {
       form.append("subimage", formData.subimage);
 
      
-       fetch("http://localhost:4000/sub/add", {
+       fetch("https://artisan-backend-beta.vercel.app/sub/add", {
          method: "POST",
          body: form,
        })

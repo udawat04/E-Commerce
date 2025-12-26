@@ -25,7 +25,7 @@ const ProductDetail = () => {
    const [cart, setCart] = useState([]);
 let { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:4000/product/call/${id}`, {
+    fetch(`https://artisan-backend-beta.vercel.app/product/call/${id}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -50,7 +50,7 @@ let { id } = useParams();
 
   useEffect(() => {
    if (user && user?._id) {
-     fetch(`http://localhost:4000/getCartItems/${user._id}`, {
+     fetch(`https://artisan-backend-beta.vercel.app/getCartItems/${user._id}`, {
        method: "GET",
      })
        .then((res) => res.json())
@@ -60,7 +60,7 @@ let { id } = useParams();
   },[user])
 
    const handleAddToCart = (productId) => {
-     fetch("http://localhost:4000/addToCart", {
+     fetch("https://artisan-backend-beta.vercel.app/addToCart", {
        method: "POST",
        headers: {
          "Content-Type": "application/json",

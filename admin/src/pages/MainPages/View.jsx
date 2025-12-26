@@ -20,7 +20,7 @@ const Orders = () => {
 
   useEffect(() => {
     // fetchOrders();
-    fetch("http://localhost:4000/sub", {
+    fetch("https://artisan-backend-beta.vercel.app/sub", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -50,7 +50,7 @@ const Orders = () => {
 
   const deleteOrder = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/sub/${id}`, {
+      const response = await fetch(`https://artisan-backend-beta.vercel.app/sub/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {

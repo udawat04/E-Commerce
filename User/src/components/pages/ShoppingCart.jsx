@@ -49,7 +49,7 @@ export default function QuantityEdit() {
 
   useEffect(() => {
     if (currentUser && currentUser?._id) {
-      fetch(`http://localhost:4000/getCartItems/${currentUser?._id}`, {
+      fetch(`https://artisan-backend-beta.vercel.app/getCartItems/${currentUser?._id}`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -60,7 +60,7 @@ export default function QuantityEdit() {
   }, [currentUser]);
 
   const updateCartItem = (productId, quantity) => {
-    fetch("http://localhost:4000/updateCartItem", {
+    fetch("https://artisan-backend-beta.vercel.app/updateCartItem", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export default function QuantityEdit() {
   };
 
   const removeCartItem = (productId) => {
-    fetch("http://localhost:4000/removeCartItem", {
+    fetch("https://artisan-backend-beta.vercel.app/removeCartItem", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +109,7 @@ export default function QuantityEdit() {
          0
        );
        // Create order on the server
-       const orderResponse = await fetch("http://localhost:4000/create-order", {
+       const orderResponse = await fetch("https://artisan-backend-beta.vercel.app/create-order", {
          method: "POST",
          headers: {
            "Content-Type": "application/json",
@@ -138,7 +138,7 @@ export default function QuantityEdit() {
          handler: async (response) => {
            // Verify payment on the server
            const paymentVerificationResponse = await fetch(
-             "http://localhost:4000/verify-order",
+             "https://artisan-backend-beta.vercel.app/verify-order",
              {
                method: "POST",
                headers: {

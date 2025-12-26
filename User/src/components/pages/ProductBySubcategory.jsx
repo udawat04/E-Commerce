@@ -11,7 +11,7 @@ const ViewProduct = () => {
 
     useEffect(() => {
       debugger;
-      fetch(`http://localhost:4000/products/${id}`, {
+      fetch(`https://artisan-backend-beta.vercel.app/products/${id}`, {
         method: "GET",
       })
         .then((res) => res.json())

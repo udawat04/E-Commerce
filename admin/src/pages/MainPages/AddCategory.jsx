@@ -35,7 +35,7 @@ debugger
     form.append("category", formData.category);
     form.append("image", formData.image);
 
-      fetch("http://localhost:4000/category", {
+      fetch("https://artisan-backend-beta.vercel.app/category", {
       method: "POST",
       body: form,
     })

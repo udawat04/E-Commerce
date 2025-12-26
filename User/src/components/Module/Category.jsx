@@ -9,7 +9,7 @@ import './Category.css'; // Import the CSS file
 const Category = () => {
   const [items , setItems] = useState([])
    useEffect(() => {
-     fetch("http://localhost:4000/category", {
+     fetch("https://artisan-backend-beta.vercel.app/category", {
        method: "GET",
      })
        .then((res) => res.json())
