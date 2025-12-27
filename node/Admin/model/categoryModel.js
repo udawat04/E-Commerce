@@ -6,16 +6,22 @@ const { BASE_URL } = require("../../config");
 const categoryController = new Schema(
   {
     category: { type: String },
-    image: {
-      type: String,
-      get: (image) => {
-        return `${BASE_URL}${image}`;
-      },
-    },
+    // image: {
+    //   type: String,
+    //   get: (image) => {
+    //     if (!image) return image;
+
+    //     if (image.startsWith("https")) {
+    //       return image;
+    //     }
+
+    //     return `${BASE_URL}/${image}`;
+    //   },
+    // },
   },
   {
     timestamps: true,
-    toJSON: { getters: true },
+    // toJSON: { getters: true },
   }
 );
 

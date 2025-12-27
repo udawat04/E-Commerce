@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { APP_PORT, DB_URL } = require("./config");
 const routes = require("./routes");
+const path = require("path");
 
 const app = express();
 
@@ -33,8 +34,8 @@ app.use(bodyParser.json());
 /* ======================
    STATIC FILES
 ====================== */
-app.use(express.static(__dirname + "/public"));
-app.use("/upload", express.static("upload"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 /* ======================
    ROUTES

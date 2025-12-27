@@ -20,10 +20,12 @@ const categoryController = {
     let display;
     try {
       display = await Category.find();
+      console.log(display)
+      res.status(200).json(display);
     } catch (error) {
       res.status(401).json({ error: "Server Error ", serverError: error });
     }
-    res.status(200).json(display);
+    
   },
 
   async delete(req, res, next) {
