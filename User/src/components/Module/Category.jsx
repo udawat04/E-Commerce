@@ -54,7 +54,7 @@ const Category = () => {
         <Row className="d-flex justify-content-center">
           {items.map((item) => (
             <Col key={item.id} sm={12} md={6} lg={4} xl={4} className="mb-4">
-              <Link to={`/Chikankari/${item.id}`}>
+              <Link to={`/Chikankari/${item._id}`}>
                 <Card className="product-card">
                   <Card.Img
                     variant="top"

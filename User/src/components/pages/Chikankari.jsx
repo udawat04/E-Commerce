@@ -23,6 +23,9 @@ const Chikankari = ({ handleAddToWishlist }) => {
        })
        .catch((error) => console.log(error));
    }, [id]);
+
+   const arr = items.map((item) => item.subimage);
+   console.log(arr,"array images")
  
   return (
     <div
@@ -59,10 +62,11 @@ const Chikankari = ({ handleAddToWishlist }) => {
         <Row>
           {items.map((item) => (
             <Col key={item.id} sm={12} md={6} lg={4} xl={3} className="mb-4 ">
-              <Link to={`/subcat/products/${item.id}`}>
+              <Link to={`/subcat/products/${item._id}`}>
                 <Card>
                   <Card.Img
                     variant="top"
+                    // src={`https://artisan-backend-beta.vercel.app/${item.subimage}`}
                     src={item.subimage}
                     className="h-[300px]"
                   />
@@ -80,7 +84,10 @@ const Chikankari = ({ handleAddToWishlist }) => {
                       >
                         View details
                       </Link>
-                      <Link to="/wishlist" className="btn mx-2 text-center items-center">
+                      <Link
+                        to="/wishlist"
+                        className="btn mx-2 text-center items-center"
+                      >
                         <MDBIcon
                           className="me mdn-icon"
                           icon="heart"
