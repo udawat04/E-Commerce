@@ -7,16 +7,16 @@ const subcategoryController = new Schema(
   {
     category: { type: Schema.Types.ObjectId, ref: "Category" },
     subcategory: { type: String },
-    subimage: {
-      type: String,
-      get: (subimage) => {
-        return `${BASE_URL}/${subimage}`;
-      },
-    },
+    // subimage: {
+    //   type: String,
+    //   get: (subimage) => {
+    //     return `${BASE_URL}/${subimage}`;
+    //   },
+    // },
   },
   {
     timestamps: true,
-    toJSON: { getters: true },
+    // toJSON: { getters: true },
   }
 );
 
