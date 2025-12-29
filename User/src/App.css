@@ -183,7 +183,7 @@
 }
 
 .search-bar button {
-  background-color: lightslategrey;
+  background-color: #778899;
   border: none;
   padding: 8px 12px;
   color: white;
@@ -240,7 +240,7 @@
   justify-content: center;
   display: flex;
   align-items: center;
-  margin-left: 30%;
+ 
 }
 
 .nav-items {

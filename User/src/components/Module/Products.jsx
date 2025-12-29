@@ -17,7 +17,9 @@ const Products = () => {
      })
        .then((res) => res.json())
        .then((data) => setProducts(data))
+       .then((data) => console.log(data))
        .catch((error) => console.log(error));
+
     if (user && user?._id) {
      
 
@@ -36,6 +38,9 @@ const Products = () => {
         .catch((error) => console.log(error));
     }
   }, [user]);
+
+        console.log(products, "product page");
+
 
    const handleAddToCart = (productId) => {
      if (user && user._id) {
@@ -117,7 +122,7 @@ const Products = () => {
                 <Card>
                   <Card.Img
                     variant="top"
-                    src={`http://localhost:4000${item.prodimage}`}
+                    src={`${item.prodimage}`}
                     style={{ height: "400px" }}
                   />
                   <Card.Body style={{ height: "250px" }}>

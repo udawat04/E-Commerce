@@ -58,7 +58,7 @@ const ViewProduct = () => {
               <Card>
                 <Card.Img
                   variant="top"
-                  src={`http://localhost:4000${elem.prodimage}`}
+                  src={`${elem.prodimage}`}
                 />
                 <Card.Body>
                   <Card.Title>{elem.name}</Card.Title>

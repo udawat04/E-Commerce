@@ -97,7 +97,7 @@ export default function Wishlist() {
                         <th scope="row">
                           <div className="d-flex align-items-center">
                             <img
-                              src={`http://localhost:4000${item.productId.prodimage}`}
+                              src={`${item.productId.prodimage}`}
                               fluid
                               className="rounded-3"
                               style={{ width: "120px" }}

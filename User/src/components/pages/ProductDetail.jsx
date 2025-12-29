@@ -110,7 +110,7 @@ let { id } = useParams();
                 <div className="zoom-container">
                   {selectedCategory && (
                     <img
-                      src={`http://localhost:4000${selectedImage}`}
+                      src={`${selectedImage}`}
                       alt="Product"
                     />
                   )}
@@ -120,7 +120,7 @@ let { id } = useParams();
                 {selectedCategory && (
                   <>
                     <img
-                      src={`http://localhost:4000${selectedCategory.prodimage}`}
+                      src={`${selectedCategory.prodimage}`}
                       alt="Main Thumbnail"
                       onClick={() =>
                         handleThumbnailClick(selectedCategory.prodimage)
@@ -134,7 +134,7 @@ let { id } = useParams();
                     {selectedCategory.slider.map((image, index) => (
                       <img
                         key={index}
-                        src={`http://localhost:4000${image}`}
+                        src={`${image}`}
                         alt={`Thumbnail ${index + 1}`}
                         onClick={() => handleThumbnailClick(image)}
                         className={image === selectedImage ? "active" : ""}

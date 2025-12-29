@@ -218,7 +218,7 @@ export default function QuantityEdit() {
                         >
                           <MDBCol md="2" lg="2" xl="2">
                             <MDBCardImage
-                              src={`http://localhost:4000${item.productId.prodimage}`}
+                              src={`${item.productId.prodimage}`}
                               fluid
                               className="rounded-3"
                               alt={item.name}

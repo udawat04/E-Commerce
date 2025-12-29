@@ -1,290 +1,125 @@
 import React, { useState } from "react";
-import { Nav, NavDropdown } from "react-bootstrap";
-
 import { Link } from "react-router-dom";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-} from "mdb-react-ui-kit";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "../../App.css"; // Ensure you import your custom CSS file
+import { FaFacebookF, FaTwitter, FaInstagram, FaGoogle } from "react-icons/fa";
 
-export default function App() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
+  
+  const Footer = () => {
+    const [email, setEmail] = useState("");
+     const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Search Term:", searchTerm);
+    console.log(email);
   };
-
-  return (
-    <>
-      <NavDropdown.Divider />
-      <MDBFooter
-        bgColor="light"
-        className="text-center text-lg-start text-muted"
-        style={{ fontFamily: "DM Serif Display", fontSize: "20px" }}
-      >
-        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <MDBContainer className="text-center text-md-start mt-5">
-            <MDBRow className="mt-3">
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-4">
-                <img
-                  className="d-block w-100"
-                  src={process.env.PUBLIC_URL + "/image/footer/f3.jpeg"}
-                  alt="Fourth slide"
-                  style={{ height: "100%", objectFit: "cover" }}
-                />
-              </MDBCol>
-
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-4">
-                <img
-                  className="d-block w-100"
-                  src={process.env.PUBLIC_URL + "/image/footer/f4.png"}
-                  alt="Fourth slide"
-                  style={{ height: "100%", objectFit: "cover" }}
-                />
-              </MDBCol>
-
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-4">
-                <img
-                  className="d-block w-100"
-                  src={process.env.PUBLIC_URL + "/image/footer/f5.png"}
-                  alt="Fourth slide"
-                  style={{ height: "100%", objectFit: "cover" }}
-                />
-              </MDBCol>
-
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto  mb-4">
-                <img
-                  className="d-block w-100"
-                  src={process.env.PUBLIC_URL + "/image/footer/f6.jpeg"}
-                  alt="Fourth slide"
-                  style={{ height: "100%", objectFit: "cover" }}
-                />
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
-        </section>
-
-        <section className="section">
-          <MDBContainer className="text-center text-md-start mt-5">
-            <div>
-              <p style={{ textAlign: "center" }}>
-                <b>BE THE FIRST TO KNOW ABOUT NEW PRODUCTS AND SALES</b>
-              </p>
-            </div>
-            <form onSubmit={handleSearchSubmit} className="search-bar">
-              <input
-                type="text"
-                placeholder="Ex.xyz123@gmail.com.."
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
-              <button type="submit">Subscribe</button>
-            </form>
-          </MDBContainer>
-        </section>
-
-        <div className="text-center p-4" style={{ backgroundColor: "#E9A401" }}>
-          <div>
-            <MDBContainer style={{ maxWidth: "auto" }}>
-              <MDBRow style={{ height: "70px" }}>
-                <MDBCol size="sm">
-                  <div>Free Shipping</div>
-
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i1.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "11rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                      marginTop: "-45px",
-                    }}
-                  />
-                </MDBCol>
-                <MDBCol size="sm">
-                  100% Protection
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i2.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "6rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                    }}
-                  />
-                </MDBCol>
-                <MDBCol size="sm">
-                  Secure Payment
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i3.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "6rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                    }}
-                  />
-                </MDBCol>
-                <MDBCol size="sm">
-                  Assured Quality
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i4.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "6rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                    }}
-                  />
-                </MDBCol>
-                <MDBCol size="sm">
-                  Authentic Products
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i5.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "6rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                    }}
-                  />
-                </MDBCol>
-                <MDBCol size="sm">
-                  Best Price Promise
-                  <img
-                    className="d-block w-70"
-                    src={process.env.PUBLIC_URL + "/image/footer/i3.png"}
-                    alt="Fourth slide"
-                    style={{
-                      maxWidth: "6rem",
-                      objectFit: "cover",
-                      margin: "auto",
-                    }}
-                  />
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-            <br />
-            <div
-              style={{
-                color: "black",
-                marginLeft: "50px",
-                marginRight: "50px",
-              }}
-            >
-              <hr className="horizontal black mb-4 mt-lg-4 my-4" />
-            </div>
-          </div>
-
-          <Nav
-            className="Navs"
-            style={{ display: "flex", margin: "auto", fontSize: "large" }}
-          >
-            <Nav.Link className="nav-link">
-              <Link to="/" className="nav-items">
-                Home
-              </Link>
-            </Nav.Link>
-            <Nav.Link className="nav-link">
-              <Link to="/about" className="nav-items">
-                About Us
-              </Link>
-            </Nav.Link>
-            <Nav.Link className="nav-link">
-              <Link to="/ContactUs" className="nav-items">
-                Contact Us
-              </Link>
-            </Nav.Link>
-            <Nav.Link className="nav-link">
-              <Link to="/Signup" className="nav-items">
-                Signup
-              </Link>
-            </Nav.Link>
-
+    return (
+      <footer className="bg-[#fffbf5] text-black font-[DM_Serif_Display]">
+        {/* IMAGE GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+          {["f3.jpeg", "f4.png", "f5.png", "f6.jpeg"].map((img, i) => (
             <img
-              className="made-in-india"
-              src={process.env.PUBLIC_URL + "/image/footer/f2.png"}
-              alt="Fourth slide"
-              style={{
-                maxWidth: "10rem",
-                objectFit: "cover",
-                position: "relative",
-                left: "300px",
-              }}
+              key={i}
+              src={`${process.env.PUBLIC_URL}/image/footer/${img}`}
+              alt="footer"
+              className="w-full h-48 object-cover rounded-lg"
             />
-          </Nav>
+          ))}
+        </div>
 
-          <div
-            style={{ color: "black", marginLeft: "50px", marginRight: "50px" }}
+        {/* SUBSCRIBE */}
+        <div className="text-center py-10 px-4">
+          <h2 className="font-bold text-lg mb-4">
+            BE THE FIRST TO KNOW ABOUT NEW PRODUCTS AND SALES
+          </h2>
+
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-md mx-auto"
           >
-            <hr className="horizontal black mb-4 mt-lg-4 my-4" />
+            <input
+              type="email"
+              placeholder="Ex.xyz@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border rounded-md outline-none"
+            />
+            <button className="bg-[#778899] text-white px-6 py-2 rounded-md hover:bg-black">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        {/* FEATURES BAR */}
+        <div className="bg-[#E9A401] py-6">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-center text-sm">
+            {[
+              ["Free Shipping", "i1.png"],
+              ["100% Protection", "i2.png"],
+              ["Secure Payment", "i3.png"],
+              ["Assured Quality", "i4.png"],
+              ["Authentic Products", "i5.png"],
+              ["Best Price Promise", "i3.png"],
+            ].map(([text, img], i) => (
+              <div key={i} className="flex flex-col items-center">
+                <p className="mb-2">{text}</p>
+                <img
+                  src={`${process.env.PUBLIC_URL}/image/footer/${img}`}
+                  className="w-12"
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="my-0 w-full px-10 h-0.5 bg-black px-auto" color="" />
+        {/* NAV LINKS */}
+        <div className=" bg-[#E9A401] flex flex-col md:flex-row items-center justify-center px-6 py-6 gap-6 ">
+          <nav className="flex flex-wrap justify-between items-center gap-6 mb-4 md:mb-0">
+            {[
+              ["Home", "/"],
+              ["About Us", "/about"],
+              ["Contact Us", "/ContactUs"],
+              ["Signup", "/Signup"],
+            ].map(([label, path], i) => (
+              <Link
+                key={i}
+                to={path}
+                className="hover:text-[#E9A401] transition"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+          <img
+            src={`${process.env.PUBLIC_URL}/image/footer/f2.png`}
+            className="w-32"
+            alt="Made in India"
+          />
+        </div>
+        <div className="my-0 w-full px-10 h-0.5 bg-black px-auto" color="" />
+
+        {/* BOTTOM BAR */}
+        <div className=" bg-[#E9A401] flex flex-col md:flex-row items-center justify-between px-6 py-4  text-sm">
+          <div className="flex gap-4 mb-3 md:mb-0">
+            <FaFacebookF />
+            <FaTwitter />
+            <FaInstagram />
+            <FaGoogle />
           </div>
 
-          <footer className="footer" style={{height: "0"}}>
-            <div className="footer-section social-media">
-              <Link to="/Logiin" className="iconitem">
-                <MDBIcon style={{ color: "black" }} fab icon="facebook-f" />
-              </Link>
-              <Link to="" className="iconitem">
-                <MDBIcon style={{ color: "black" }} fab icon="twitter" />
-              </Link>
-              <Link to="/Wishlist" className="iconitem">
-                <MDBIcon style={{ color: "black" }} fab icon="instagram" />
-              </Link>
-              <Link to="/Wishlist" className="iconitem">
-                <MDBIcon color="black" fab icon="google" />
-              </Link>
-            </div>
-            <div className="footer-section company-name">
-              <p style={{ fontSize: "medium" }}>© 2024, ARTISAN.</p>
-            </div>
-            <div className="footer-section payment-icons">
-              <img
-                className="payment-option"
-                src={process.env.PUBLIC_URL + "/image/footer/p5.png"}
-                alt="Fourth slide"
-                style={{height: "2rem"}}
-              />
+          <p>© 2024, ARTISAN.</p>
 
+          <div className="flex gap-3">
+            {["p5.png", "p6.png", "p7.png", "p8.png"].map((img, i) => (
               <img
-                className="payment-option"
-                src={process.env.PUBLIC_URL + "/image/footer/p6.png"}
-                alt="Fourth slide"
-                style={{ marginLeft: "12px" }}
+                key={i}
+                src={`${process.env.PUBLIC_URL}/image/footer/${img}`}
+                className="h-6"
+                alt=""
               />
-
-              <img
-                className="payment-option"
-                src={process.env.PUBLIC_URL + "/image/footer/p7.png"}
-                alt="Fourth slide"
-                style={{ marginLeft: "12px" }}
-              />
-
-              <img
-                className="payment-option"
-                src={process.env.PUBLIC_URL + "/image/footer/p8.png"}
-                alt="Fourth slide"
-                style={{ marginLeft: "12px",height: "2rem" }}
-              />
-            </div>
-          </footer>
+            ))}
+          </div>
         </div>
-      </MDBFooter>
-    </>
-  );
-}
+      </footer>
+    );
+  }
+  
+  export default Footer
